@@ -1,7 +1,9 @@
+import { Header } from './Header';
+
 const App = () => {
   return (
     <div>
-      <p>QRCODE GENERATOR</p>
+      <Header />
     </div>
   );
 };
