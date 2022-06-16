@@ -6,4 +6,3 @@ dist-ssr
 coverage
 *.local
 *.yml
-package*
