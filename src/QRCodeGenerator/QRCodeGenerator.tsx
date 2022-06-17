@@ -38,7 +38,7 @@ export const QRCodeGenerator = () => {
       {qrCode && (
         <>
           <img src={qrCode} alt="generated qr code" />
-          <a role="button" href={qrCode} download="qr-code.png">
+          <a href={qrCode} download="qr-code.png">
             Download
           </a>
         </>
