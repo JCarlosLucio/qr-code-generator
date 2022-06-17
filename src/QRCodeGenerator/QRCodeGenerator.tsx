@@ -23,7 +23,7 @@ export const QRCodeGenerator = () => {
   };
 
   return (
-    <div>
+    <main className="flex flex-col items-center">
       <form>
         <input
           type="text"
@@ -43,6 +43,6 @@ export const QRCodeGenerator = () => {
           </a>
         </>
       )}
-    </div>
+    </main>
   );
 };
