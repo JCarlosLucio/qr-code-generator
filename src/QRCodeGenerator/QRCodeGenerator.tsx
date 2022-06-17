@@ -2,8 +2,8 @@ import QRCode from 'qrcode';
 import { ChangeEvent, MouseEvent, useState } from 'react';
 
 export const QRCodeGenerator = () => {
-  const [url, setUrl] = useState('');
-  const [qrCode, setQrCode] = useState('');
+  const [url, setUrl] = useState<string>('');
+  const [qrCode, setQrCode] = useState<string>('');
 
   const handleUrlChange = (event: ChangeEvent<HTMLInputElement>) => {
     setUrl(event.target.value);
