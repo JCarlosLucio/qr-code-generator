@@ -2,6 +2,7 @@ import './index.css';
 
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { ColorModeProvider } from 'utils/ColorModeContext';
 
 import App from './App';
 
@@ -10,6 +11,8 @@ const root = createRoot(container!); // createRoot(container!) if you use TypeSc
 
 root.render(
   <React.StrictMode>
-    <App />
+    <ColorModeProvider>
+      <App />
+    </ColorModeProvider>
   </React.StrictMode>,
 );
