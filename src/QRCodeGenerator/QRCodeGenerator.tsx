@@ -11,17 +11,19 @@ export const QRCodeGenerator = () => {
 
   const generate = async (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    const dataUrl = await QRCode.toDataURL(url, {
-      width: 320,
-      margin: 1,
-      type: 'image/png',
-      color: {
-        dark: '#00F', // Blue dots
-        light: '#0000', // Transparent background
-      },
-    });
-    setQrCode(dataUrl);
-    setUrl('');
+    if (url) {
+      const dataUrl = await QRCode.toDataURL(url, {
+        width: 320,
+        margin: 1,
+        type: 'image/png',
+        color: {
+          dark: '#000', // Dots colors
+          light: '#0000', // Transparent background
+        },
+      });
+      setQrCode(dataUrl);
+      setUrl('');
+    }
   };
 
   return (
