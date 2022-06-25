@@ -41,8 +41,7 @@ export const ColorModeProvider = ({ children }: { children: ReactNode }) => {
   const rawSetMode = (mode: ColorMode) => {
     const root = window.document.documentElement;
 
-    root.classList.remove(mode === 'dark' ? 'light' : 'dark');
-    root.classList.add(mode);
+    root.dataset.theme = mode;
 
     saveColorMode(mode);
   };
