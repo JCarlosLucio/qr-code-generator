@@ -4,6 +4,9 @@ module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   darkMode: ['class', '[data-theme="dark"]'],
   theme: {
+    fontFamily: {
+      display: ['"Press Start 2P"'],
+    },
     extend: {
       backgroundImage: {
         'hero-pattern': "url('/src/background.svg')",
