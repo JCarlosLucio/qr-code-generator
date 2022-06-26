@@ -26,6 +26,10 @@ export const QRCodeGenerator = () => {
     }
   };
 
+  const handlePrint = (_event: MouseEvent<HTMLButtonElement>) => {
+    window?.print();
+  };
+
   return (
     <main className="mb-5 flex w-full max-w-xs flex-col items-center gap-4 sm:max-w-md">
       <form className="form-control flex w-full flex-col items-center gap-4">
@@ -62,6 +66,9 @@ export const QRCodeGenerator = () => {
           >
             Download
           </a>
+          <button className="btn btn-accent btn-block" onClick={handlePrint}>
+            Print
+          </button>
         </>
       )}
     </main>
