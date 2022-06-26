@@ -35,7 +35,12 @@ module.exports = {
     'prettier/prettier': ['error', {}, { usePrettierrc: true }],
     eqeqeq: 'error',
     'no-console': 'warn',
-    'no-unused-vars': 'warn',
+    'no-unused-vars': [
+      'warn',
+      {
+        argsIgnorePattern: '^_',
+      },
+    ],
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
