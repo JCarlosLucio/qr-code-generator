@@ -1,5 +1,6 @@
 import QRCode from 'qrcode';
 import { ChangeEvent, MouseEvent, useState } from 'react';
+import { FaTimesCircle } from 'react-icons/fa';
 
 export const QRCodeGenerator = () => {
   const [url, setUrl] = useState<string>('');
@@ -22,12 +23,17 @@ export const QRCodeGenerator = () => {
         },
       });
       setQrCode(dataUrl);
-      setUrl('');
     }
   };
 
   const handlePrint = (_event: MouseEvent<HTMLButtonElement>) => {
     window?.print();
+  };
+
+  const handleClear = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    setQrCode('');
+    setUrl('');
   };
 
   return (
@@ -47,6 +53,11 @@ export const QRCodeGenerator = () => {
             onChange={handleUrlChange}
             placeholder="https://google.com"
           />
+          {url && (
+            <button onClick={handleClear}>
+              <FaTimesCircle className="text-2xl" />
+            </button>
+          )}
         </div>
         <button
           className="btn btn-primary btn-block"
