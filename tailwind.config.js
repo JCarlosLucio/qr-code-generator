@@ -12,6 +12,9 @@ module.exports = {
         'hero-pattern': "url('/src/background.svg')",
         'dark-hero-pattern': "url('/src/dark-background.svg')",
       },
+      screens: {
+        print: { raw: 'print' },
+      },
     },
   },
   plugins: [require('daisyui')],
