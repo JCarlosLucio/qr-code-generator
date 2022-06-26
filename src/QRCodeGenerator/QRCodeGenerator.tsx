@@ -40,13 +40,13 @@ export const QRCodeGenerator = () => {
     <main className="mb-5 flex w-full max-w-xs flex-col items-center gap-4 sm:max-w-md">
       <form className="form-control flex w-full flex-col items-center gap-4">
         <label className="label" htmlFor="url-input">
-          <span className="label-text sm:text-lg">
+          <span className="label-text sm:text-lg print:hidden">
             Enter your link to generate the QR code
           </span>
         </label>
         <div className="flex w-full max-w-xs flex-row items-center gap-4 sm:max-w-md">
           <input
-            className="input input-bordered input-lg w-full"
+            className="input input-bordered input-lg w-full print:text-center print:text-2xl"
             type="text"
             id="url-input"
             value={url}
@@ -54,13 +54,13 @@ export const QRCodeGenerator = () => {
             placeholder="https://google.com"
           />
           {url && (
-            <button onClick={handleClear}>
+            <button className="print:hidden" onClick={handleClear}>
               <FaTimesCircle className="text-2xl" />
             </button>
           )}
         </div>
         <button
-          className="btn btn-primary btn-block"
+          className="btn btn-primary btn-block print:hidden"
           type="submit"
           onClick={generate}
         >
@@ -71,13 +71,16 @@ export const QRCodeGenerator = () => {
         <>
           <img src={qrCode} alt="generated qr code" />
           <a
-            className="btn btn-secondary btn-block"
+            className="btn btn-secondary btn-block print:hidden"
             href={qrCode}
             download="qr-code.png"
           >
             Download
           </a>
-          <button className="btn btn-accent btn-block" onClick={handlePrint}>
+          <button
+            className="btn btn-accent btn-block print:hidden"
+            onClick={handlePrint}
+          >
             Print
           </button>
         </>
