@@ -1,6 +1,6 @@
 import QRCode from 'qrcode';
 import { ChangeEvent, MouseEvent, useState } from 'react';
-import { FaTimesCircle } from 'react-icons/fa';
+import { FaDownload, FaPrint, FaQrcode, FaTimesCircle } from 'react-icons/fa';
 
 export const QRCodeGenerator = () => {
   const [url, setUrl] = useState<string>('');
@@ -60,28 +60,28 @@ export const QRCodeGenerator = () => {
           )}
         </div>
         <button
-          className="btn btn-primary btn-block print:hidden"
+          className="btn btn-primary btn-block gap-2 print:hidden"
           type="submit"
           onClick={generate}
         >
-          Generate
+          Generate <FaQrcode />
         </button>
       </form>
       {qrCode && (
         <>
           <img src={qrCode} alt="generated qr code" />
           <a
-            className="btn btn-secondary btn-block print:hidden"
+            className="btn btn-secondary btn-block gap-2 print:hidden"
             href={qrCode}
             download="qr-code.png"
           >
-            Download
+            Download <FaDownload />
           </a>
           <button
-            className="btn btn-accent btn-block print:hidden"
+            className="btn btn-accent btn-block gap-2 print:hidden"
             onClick={handlePrint}
           >
-            Print
+            Print <FaPrint />
           </button>
         </>
       )}
