@@ -18,8 +18,8 @@ export const QRCodeGenerator = () => {
         margin: 1,
         type: 'image/png',
         color: {
-          dark: '#000', // Dots colors
-          light: '#0000', // Transparent background
+          dark: '#000', // Dots color
+          light: '#FFF', // Background color
         },
       });
       setQrCode(dataUrl);
@@ -72,7 +72,7 @@ export const QRCodeGenerator = () => {
       </form>
       {qrCode && (
         <>
-          <img src={qrCode} alt="generated qr code" />
+          <img className="artboard-demo" src={qrCode} alt="generated qr code" />
           <a
             className="btn btn-secondary btn-block gap-2 print:hidden"
             href={qrCode}
