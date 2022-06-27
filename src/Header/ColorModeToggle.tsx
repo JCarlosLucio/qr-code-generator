@@ -12,7 +12,7 @@ export const ColorModeToggle = () => {
   const isDark = colorMode === 'dark';
 
   return (
-    <label className="swap swap-rotate">
+    <label className="swap swap-rotate print:hidden">
       <input type="checkbox" onChange={handleChange} checked={isDark} />
       <FaRegMoon className="swap-on h-6 w-6 fill-current sm:h-6 sm:w-6" />
       <FaRegSun className="swap-off h-6 w-6 fill-current sm:h-6 sm:w-6" />
