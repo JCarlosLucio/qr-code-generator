@@ -74,19 +74,22 @@ export const QRCodeGenerator = () => {
       {qrCode && (
         <>
           <img className="artboard-demo" src={qrCode} alt="generated qr code" />
-          <a
-            className="btn btn-secondary btn-block gap-2 print:hidden"
-            href={qrCode}
-            download="qr-code.png"
-          >
-            Download <FaDownload />
-          </a>
-          <button
-            className="btn btn-accent btn-block gap-2 print:hidden"
-            onClick={handlePrint}
-          >
-            Print <FaPrint />
-          </button>
+
+          <div className="flex w-full flex-grow gap-2">
+            <a
+              className="btn btn-secondary flex-1 gap-2 print:hidden"
+              href={qrCode}
+              download="qr-code.png"
+            >
+              Download <FaDownload />
+            </a>
+            <button
+              className="btn btn-accent flex-1 gap-2 print:hidden"
+              onClick={handlePrint}
+            >
+              Print <FaPrint />
+            </button>
+          </div>
         </>
       )}
     </main>
