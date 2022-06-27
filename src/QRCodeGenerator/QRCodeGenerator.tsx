@@ -55,6 +55,7 @@ export const QRCodeGenerator = () => {
           />
           {url && (
             <button
+              type="button"
               className="btn btn-ghost btn-square btn-sm print:hidden"
               onClick={handleClear}
             >
