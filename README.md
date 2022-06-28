@@ -19,7 +19,8 @@ Builds the app for production to the `dist` folder.
 
 ### `npm run serve`
 
-Tests the app locally, once you've built the app.
+Tests the app locally, once you've built the app.\
+Open [http://localhost:4173](http://localhost:4173) to view it in the browser.
 
 ### `npm run lint:format`
 
