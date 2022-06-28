@@ -1,4 +1,8 @@
-# Simple Qr Code Generator
+# QRCODE GENERATOR
+
+## Deployed Site
+
+[https://jcarloslucio.github.io/qr-code-generator/](https://jcarloslucio.github.io/qr-code-generator/)
 
 ## Installation
 
