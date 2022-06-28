@@ -95,7 +95,7 @@ jobs:
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
           avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
           description:
-            to TBD by ${{
+            to https://jcarloslucio.github.io/qr-code-generator/ by ${{
             github.event.commits[0].committer.username }}
           text: 'A new version of QRCODE GENERATOR deployed :partying_face:'
 
