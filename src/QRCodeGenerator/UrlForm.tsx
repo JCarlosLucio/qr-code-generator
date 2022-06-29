@@ -15,7 +15,7 @@ interface UrlFormProps {
 export const UrlForm = ({ setQrCode }: UrlFormProps) => {
   const [url, setUrl] = useState<string>('');
 
-  const handleUrlChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleUrlChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setUrl(event.target.value);
   };
 
@@ -43,16 +43,15 @@ export const UrlForm = ({ setQrCode }: UrlFormProps) => {
 
   return (
     <form className="form-control flex w-full flex-col items-center gap-4">
-      <label className="label" htmlFor="url-input">
+      <label className="label" htmlFor="url-textarea">
         <span className="label-text sm:text-lg print:hidden">
           Enter your link to generate the QR code
         </span>
       </label>
       <div className="flex w-full flex-row items-center gap-4">
-        <input
-          className="input input-bordered input-lg w-full print:hidden"
-          type="text"
-          id="url-input"
+        <textarea
+          className="textarea textarea-bordered w-full print:text-center print:text-2xl"
+          id="url-textarea"
           value={url}
           onChange={handleUrlChange}
           placeholder="https://google.com"
