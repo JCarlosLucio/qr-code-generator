@@ -23,7 +23,7 @@ export const QRCodeGenerator = () => {
 
   return (
     <main className="mb-5 flex w-full max-w-xs flex-col items-center gap-4 sm:max-w-md print:max-w-2xl">
-      <div className="tabs tabs-boxed bg-base-100">
+      <div className="tabs tabs-boxed">
         <button className={activeTabClass('url')} onClick={handleTab('url')}>
           URL
         </button>
