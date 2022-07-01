@@ -48,7 +48,7 @@ export const UrlForm = ({ setQrCode }: UrlFormProps) => {
           Enter your link to generate the QR code
         </span>
       </label>
-      <div className="flex w-full flex-row items-center gap-4">
+      <div className="flex w-full items-center gap-4">
         <textarea
           className="textarea textarea-bordered w-full print:text-center print:text-2xl"
           id="url-textarea"
