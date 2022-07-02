@@ -47,26 +47,28 @@ export const WifiForm = ({ setQrCode }: WifiFormProps) => {
 
   return (
     <form className="form-control flex w-full flex-col items-center gap-4">
-      <label className="input-group">
-        <span>SSID</span>
-        <input
-          className="input input-bordered w-full print:text-center print:text-2xl"
-          value={wifiConfig.ssid}
-          onChange={handleInputChange}
-          name="ssid"
-          placeholder="Wifi network name"
-        />
-      </label>
-      <label className="label cursor-pointer gap-2">
-        <span className="label-text">Is your wifi network hidden?</span>
-        <input
-          className="checkbox"
-          name="hiddenSSID"
-          type="checkbox"
-          checked={wifiConfig.hiddenSSID}
-          onChange={handleInputChange}
-        />
-      </label>
+      <div className="flex w-full items-center justify-center gap-2">
+        <label className="input-group">
+          <span>SSID</span>
+          <input
+            className="input input-bordered w-full print:text-center print:text-2xl"
+            value={wifiConfig.ssid}
+            onChange={handleInputChange}
+            name="ssid"
+            placeholder="Network name"
+          />
+        </label>
+        <label className="label cursor-pointer gap-2 print:hidden">
+          <span className="label-text">Hidden?</span>
+          <input
+            className="checkbox"
+            name="hiddenSSID"
+            type="checkbox"
+            checked={wifiConfig.hiddenSSID}
+            onChange={handleInputChange}
+          />
+        </label>
+      </div>
       <label className="input-group">
         <span>Password</span>
         <input
@@ -78,7 +80,7 @@ export const WifiForm = ({ setQrCode }: WifiFormProps) => {
         />
       </label>
 
-      <div className="flex w-full items-center justify-center gap-4">
+      <div className="flex w-full items-center justify-center gap-4 print:hidden">
         <label className="label cursor-pointer gap-2">
           <span className="label-text">None</span>
           <input
