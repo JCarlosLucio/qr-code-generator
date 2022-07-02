@@ -1,4 +1,3 @@
-import QRCode from 'qrcode';
 import {
   ChangeEvent,
   Dispatch,
@@ -7,6 +6,7 @@ import {
   useState,
 } from 'react';
 import { FaQrcode, FaTimes } from 'react-icons/fa';
+import { generateQRCode } from 'utils/generator';
 
 interface UrlFormProps {
   setQrCode: Dispatch<SetStateAction<string>>;
@@ -21,16 +21,9 @@ export const UrlForm = ({ setQrCode }: UrlFormProps) => {
 
   const generate = async (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+
     if (url) {
-      const dataUrl = await QRCode.toDataURL(url, {
-        width: 320,
-        margin: 1,
-        type: 'image/png',
-        color: {
-          dark: '#000', // Dots color
-          light: '#FFF', // Background color
-        },
-      });
+      const dataUrl = await generateQRCode(url);
       setQrCode(dataUrl);
     }
   };
@@ -48,7 +41,7 @@ export const UrlForm = ({ setQrCode }: UrlFormProps) => {
           Enter your link to generate the QR code
         </span>
       </label>
-      <div className="flex w-full flex-row items-center gap-4">
+      <div className="flex w-full items-center gap-4">
         <textarea
           className="textarea textarea-bordered w-full print:text-center print:text-2xl"
           id="url-textarea"
