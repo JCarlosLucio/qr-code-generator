@@ -1,3 +1,5 @@
+import QRCode from 'qrcode';
+
 import { WifiConfig } from './types';
 
 /**
@@ -29,4 +31,21 @@ export const generateWifiString = (config: WifiConfig): string => {
   const h = `H:${hiddenSSID};`;
 
   return `WIFI:${s}${p}${h}${t};`;
+};
+
+export const generateQRCode = async (text: string) => {
+  try {
+    return await QRCode.toDataURL(text, {
+      width: 320,
+      margin: 4,
+      type: 'image/png',
+      color: {
+        dark: '#000', // Dots color
+        light: '#FFF', // Background color
+      },
+    });
+  } catch (error) {
+    console.log(error);
+    return '';
+  }
 };
