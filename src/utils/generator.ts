@@ -7,7 +7,7 @@ import { WifiConfig } from './types';
  * @param str
  * @returns
  */
-export const mecardEncoding = (str: string): string => {
+const mecardEncoding = (str: string): string => {
   return str
     .replace(/\\/g, '\\\\')
     .replace(/;/g, '\\;')
@@ -22,7 +22,7 @@ export const mecardEncoding = (str: string): string => {
  * @param config
  * @returns
  */
-export const generateWifiString = (config: WifiConfig): string => {
+const generateWifiString = (config: WifiConfig): string => {
   const { ssid, password, encryption, hiddenSSID } = config;
 
   const s = `S:${mecardEncoding(ssid)};`;
@@ -48,4 +48,9 @@ export const generateQRCode = async (text: string) => {
     console.log(error);
     return '';
   }
+};
+
+export const generateWifiQRCode = async (wifiConfig: WifiConfig) => {
+  const wifiString = generateWifiString(wifiConfig);
+  return await generateQRCode(wifiString);
 };
