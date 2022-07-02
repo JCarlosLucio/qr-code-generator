@@ -3,6 +3,7 @@ import { FaDownload, FaPrint } from 'react-icons/fa';
 import { TabKey } from 'utils/types';
 
 import { UrlForm } from './UrlForm';
+import { WifiForm } from './WifiForm';
 
 export const QRCodeGenerator = () => {
   const [activeTab, setActiveTab] = useState<TabKey>('url');
@@ -35,7 +36,7 @@ export const QRCodeGenerator = () => {
       {activeTab === 'url' ? (
         <UrlForm setQrCode={setQrCode} />
       ) : (
-        <p>Wifi form</p>
+        <WifiForm setQrCode={setQrCode} />
       )}
 
       {qrCode && (
