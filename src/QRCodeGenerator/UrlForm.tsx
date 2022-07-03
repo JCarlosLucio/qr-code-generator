@@ -5,7 +5,7 @@ import {
   SetStateAction,
   useState,
 } from 'react';
-import { FaQrcode, FaTimes } from 'react-icons/fa';
+import { FaQrcode } from 'react-icons/fa';
 import { generateQRCode } from 'utils/generator';
 
 interface UrlFormProps {
@@ -55,24 +55,24 @@ export const UrlForm = ({ setQrCode }: UrlFormProps) => {
           onChange={handleUrlChange}
           placeholder="https://google.com"
         />
-        {url && (
-          <button
-            type="button"
-            className="btn btn-ghost btn-square btn-sm print:hidden"
-            onClick={handleClear}
-          >
-            <FaTimes className="text-2xl" />
-          </button>
-        )}
       </div>
-      <button
-        className="btn btn-primary btn-block gap-2 print:hidden"
-        type="submit"
-        onClick={generate}
-        disabled={isDisabled}
-      >
-        Generate <FaQrcode />
-      </button>
+      <div className="flex w-full flex-grow items-center gap-4">
+        <button
+          className="btn btn-primary flex-1 gap-2 print:hidden"
+          type="submit"
+          onClick={generate}
+          disabled={isDisabled}
+        >
+          Generate <FaQrcode />
+        </button>
+        <button
+          type="button"
+          className="btn btn-outline gap-2 print:hidden"
+          onClick={handleClear}
+        >
+          Clear
+        </button>
+      </div>
     </form>
   );
 };
