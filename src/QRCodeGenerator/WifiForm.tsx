@@ -22,11 +22,15 @@ const initialConfig: WifiConfig = {
 
 export const WifiForm = ({ setQrCode }: WifiFormProps) => {
   const [wifiConfig, setWifiConfig] = useState<WifiConfig>(initialConfig);
+  const [isDisabled, setIsDisabled] = useState<boolean>(false);
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value, checked } = event.target;
     const isHiddenSSID = name === 'hiddenSSID';
 
+    if (isDisabled) {
+      setIsDisabled(false);
+    }
     setWifiConfig({ ...wifiConfig, [name]: isHiddenSSID ? checked : value });
   };
 
@@ -36,6 +40,7 @@ export const WifiForm = ({ setQrCode }: WifiFormProps) => {
     if (wifiConfig.ssid && wifiConfig.password) {
       const dataUrl = await generateWifiQRCode(wifiConfig);
       setQrCode(dataUrl);
+      setIsDisabled(true);
     }
   };
 
@@ -43,6 +48,7 @@ export const WifiForm = ({ setQrCode }: WifiFormProps) => {
     event.preventDefault();
     setQrCode('');
     setWifiConfig(initialConfig);
+    setIsDisabled(false);
   };
 
   return (
@@ -121,6 +127,7 @@ export const WifiForm = ({ setQrCode }: WifiFormProps) => {
           className="btn btn-primary flex-1 gap-2 print:hidden"
           type="submit"
           onClick={generate}
+          disabled={isDisabled}
         >
           Generate <FaQrcode />
         </button>
