@@ -5,8 +5,9 @@ import {
   SetStateAction,
   useState,
 } from 'react';
-import { FaQrcode } from 'react-icons/fa';
 import { generateQRCode } from 'utils/generator';
+
+import { GeneratorBtns } from './GeneratorBtns';
 
 interface UrlFormProps {
   setQrCode: Dispatch<SetStateAction<string>>;
@@ -56,23 +57,11 @@ export const UrlForm = ({ setQrCode }: UrlFormProps) => {
           placeholder="https://google.com"
         />
       </div>
-      <div className="flex w-full flex-grow items-center gap-4">
-        <button
-          className="btn btn-primary flex-1 gap-2 print:hidden"
-          type="submit"
-          onClick={generate}
-          disabled={isDisabled}
-        >
-          Generate <FaQrcode />
-        </button>
-        <button
-          type="button"
-          className="btn btn-outline gap-2 print:hidden"
-          onClick={handleClear}
-        >
-          Clear
-        </button>
-      </div>
+      <GeneratorBtns
+        generate={generate}
+        isDisabled={isDisabled}
+        clear={handleClear}
+      />
     </form>
   );
 };
