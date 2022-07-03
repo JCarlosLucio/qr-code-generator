@@ -5,9 +5,10 @@ import {
   SetStateAction,
   useState,
 } from 'react';
-import { FaQrcode } from 'react-icons/fa';
 import { generateWifiQRCode } from 'utils/generator';
 import { WifiConfig } from 'utils/types';
+
+import { GeneratorBtns } from './GeneratorBtns';
 
 interface WifiFormProps {
   setQrCode: Dispatch<SetStateAction<string>>;
@@ -22,11 +23,15 @@ const initialConfig: WifiConfig = {
 
 export const WifiForm = ({ setQrCode }: WifiFormProps) => {
   const [wifiConfig, setWifiConfig] = useState<WifiConfig>(initialConfig);
+  const [isDisabled, setIsDisabled] = useState<boolean>(false);
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value, checked } = event.target;
     const isHiddenSSID = name === 'hiddenSSID';
 
+    if (isDisabled) {
+      setIsDisabled(false);
+    }
     setWifiConfig({ ...wifiConfig, [name]: isHiddenSSID ? checked : value });
   };
 
@@ -36,6 +41,7 @@ export const WifiForm = ({ setQrCode }: WifiFormProps) => {
     if (wifiConfig.ssid && wifiConfig.password) {
       const dataUrl = await generateWifiQRCode(wifiConfig);
       setQrCode(dataUrl);
+      setIsDisabled(true);
     }
   };
 
@@ -43,6 +49,7 @@ export const WifiForm = ({ setQrCode }: WifiFormProps) => {
     event.preventDefault();
     setQrCode('');
     setWifiConfig(initialConfig);
+    setIsDisabled(false);
   };
 
   return (
@@ -116,22 +123,11 @@ export const WifiForm = ({ setQrCode }: WifiFormProps) => {
         </label>
       </div>
 
-      <div className="flex w-full flex-grow items-center gap-4">
-        <button
-          className="btn btn-primary flex-1 gap-2 print:hidden"
-          type="submit"
-          onClick={generate}
-        >
-          Generate <FaQrcode />
-        </button>
-        <button
-          type="button"
-          className="btn btn-outline gap-2 print:hidden"
-          onClick={handleClear}
-        >
-          Clear
-        </button>
-      </div>
+      <GeneratorBtns
+        generate={generate}
+        isDisabled={isDisabled}
+        clear={handleClear}
+      />
     </form>
   );
 };
