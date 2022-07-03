@@ -14,8 +14,12 @@ interface UrlFormProps {
 
 export const UrlForm = ({ setQrCode }: UrlFormProps) => {
   const [url, setUrl] = useState<string>('');
+  const [isDisabled, setIsDisabled] = useState<boolean>(false);
 
   const handleUrlChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    if (isDisabled) {
+      setIsDisabled(false);
+    }
     setUrl(event.target.value);
   };
 
@@ -25,6 +29,7 @@ export const UrlForm = ({ setQrCode }: UrlFormProps) => {
     if (url) {
       const dataUrl = await generateQRCode(url);
       setQrCode(dataUrl);
+      setIsDisabled(true);
     }
   };
 
@@ -32,6 +37,7 @@ export const UrlForm = ({ setQrCode }: UrlFormProps) => {
     event.preventDefault();
     setQrCode('');
     setUrl('');
+    setIsDisabled(false);
   };
 
   return (
@@ -63,6 +69,7 @@ export const UrlForm = ({ setQrCode }: UrlFormProps) => {
         className="btn btn-primary btn-block gap-2 print:hidden"
         type="submit"
         onClick={generate}
+        disabled={isDisabled}
       >
         Generate <FaQrcode />
       </button>
