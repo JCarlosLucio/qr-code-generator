@@ -1,0 +1,19 @@
+/**  
+  Recommended config from https://docs.cypress.io/guides/tooling/typescript-support#Configure-tsconfig-json
+*/
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "es5",
+      "dom"
+    ],
+    "types": [
+      "cypress",
+      "node"
+    ]
+  },
+  "include": [
+    "**/*.ts"
+  ]
+}
