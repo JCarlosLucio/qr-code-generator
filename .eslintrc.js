@@ -57,4 +57,22 @@ module.exports = {
       },
     ],
   },
+  // Cypress esltint config - uses eslint-plugin-cypress
+  overrides: [
+    {
+      files: ['./cypress/**/*.cy.ts'],
+      extends: ['plugin:cypress/recommended'],
+      plugins: ['cypress'],
+      rules: {
+        'cypress/no-force': 'warn',
+        'cypress/assertion-before-screenshot': 'warn',
+        'cypress/no-unnecessary-waiting': 'error',
+        'cypress/require-data-selectors': 'warn',
+        'cypress/no-pause': 'error',
+      },
+      env: {
+        'cypress/globals': true, // enable Cypress global variables.
+      },
+    },
+  ],
 };
