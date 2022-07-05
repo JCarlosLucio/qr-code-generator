@@ -5,3 +5,6 @@ dist
 dist-ssr
 coverage
 *.local
+cypress/screenshots
+cypress/videos
+cypress/downloads
