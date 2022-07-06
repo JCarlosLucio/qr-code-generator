@@ -31,5 +31,19 @@ describe('QRCODE GENERATOR APP', function () {
       cy.getByDataTest('print-btn').should('exist');
       cy.getByDataTest(generateBtnSelector).should('be.disabled');
     });
+
+    it('Url qrcode and input can be cleared', function () {
+      const urlTextarea = 'url-textarea';
+
+      cy.getByDataTest(urlTextarea)
+        .type(this.urlInput)
+        .should('have.value', this.urlInput);
+      cy.getByDataTest('clear-btn').click();
+      cy.getByDataTest('qrcode-img').should('not.exist');
+      cy.getByDataTest('download-btn').should('not.exist');
+      cy.getByDataTest('print-btn').should('not.exist');
+      cy.getByDataTest(urlTextarea).should('have.value', '');
+      cy.getByDataTest('generate-btn').should('not.be.disabled');
+    });
   });
 });
