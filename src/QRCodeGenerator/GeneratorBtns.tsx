@@ -19,15 +19,17 @@ export const GeneratorBtns = ({
         type="submit"
         onClick={generate}
         disabled={isDisabled}
+        data-test="generate-btn"
       >
-        Generate <FaQrcode />
+        GENERATE <FaQrcode />
       </button>
       <button
         type="button"
         className="btn btn-outline gap-2 print:hidden"
         onClick={clear}
+        data-test="clear-btn"
       >
-        Clear
+        CLEAR
       </button>
     </div>
   );

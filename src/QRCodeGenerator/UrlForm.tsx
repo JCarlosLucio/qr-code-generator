@@ -55,6 +55,7 @@ export const UrlForm = ({ setQrCode }: UrlFormProps) => {
           value={url}
           onChange={handleUrlChange}
           placeholder="https://google.com"
+          data-test="url-textarea"
         />
       </div>
       <GeneratorBtns
