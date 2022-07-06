@@ -1,4 +1,3 @@
-/// <reference types="cypress" />
 // ***********************************************
 // This example commands.ts shows you how to
 // create various custom commands and overwrite
@@ -25,6 +24,9 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 //
+// Types declaration for custom commands -- can be moved into an external declaration (*.d.ts) file. Ex. cypress.d.ts
+// Please read more here: https://docs.cypress.io/guides/tooling/typescript-support#Using-an-External-Typings-File
+//
 // declare global {
 //   namespace Cypress {
 //     interface Chainable {
@@ -35,3 +37,7 @@
 //     }
 //   }
 // }
+
+Cypress.Commands.add('getByDataTest', (selector, ...args) => {
+  return cy.get(`[data-test=${selector}]`, ...args);
+});
