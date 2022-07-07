@@ -13,6 +13,14 @@ describe('QRCODE GENERATOR APP', function () {
     cy.getByDataTest('clear-btn').should('exist');
   });
 
+  it('Github link has the correct href', function () {
+    cy.getByDataTest('github-link').should(
+      'have.prop',
+      'href',
+      'https://github.com/JCarlosLucio/qr-code-generator',
+    );
+  });
+
   describe('A URL QRCode can be created ', function () {
     beforeEach(function () {
       const urlInput = 'https://google.com';
