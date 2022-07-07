@@ -21,6 +21,19 @@ describe('QRCODE GENERATOR APP', function () {
     );
   });
 
+  it('ColorModeToggle changes color theme', function () {
+    expect(window.localStorage.getItem('color-mode')).to.eq('dark');
+    cy.root().should('have.attr', 'data-theme', 'dark');
+    cy.root().should('have.css', 'background-color', 'rgb(0, 0, 0)');
+    cy.getByDataTest('color-mode-toggle')
+      .click()
+      .should(() => {
+        expect(window.localStorage.getItem('color-mode')).to.eq('light');
+      });
+    cy.root().should('have.attr', 'data-theme', 'light');
+    cy.root().should('have.css', 'background-color', 'rgb(255, 255, 255)');
+  });
+
   describe('A URL QRCode can be created ', function () {
     beforeEach(function () {
       const urlInput = 'https://google.com';
