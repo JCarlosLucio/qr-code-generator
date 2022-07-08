@@ -70,4 +70,22 @@ describe('QRCODE GENERATOR APP', function () {
       cy.getByDataTest('generate-btn').should('not.be.disabled');
     });
   });
+
+  describe('WIFI QRCode', function () {
+    beforeEach(function () {
+      const ssidInput = 'TEST_NETWORK_NAME_2.4';
+      const passwordInput = 'testpasswordinput1234';
+      cy.getByDataTest('wifi-tab').click();
+      cy.getByDataTest('ssid-input').type(ssidInput);
+      cy.getByDataTest('password-input').type(passwordInput);
+      cy.getByDataTest('generate-btn').click();
+    });
+
+    it('A WIFI QRCode can be created', function () {
+      cy.getByDataTest('qrcode-img').should('exist');
+      cy.getByDataTest('download-btn').should('exist');
+      cy.getByDataTest('print-btn').should('exist');
+      cy.getByDataTest('generate-btn').should('be.disabled');
+    });
+  });
 });
