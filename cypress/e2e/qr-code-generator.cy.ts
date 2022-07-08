@@ -34,6 +34,18 @@ describe('QRCODE GENERATOR APP', function () {
     cy.root().should('have.css', 'background-color', 'rgb(255, 255, 255)');
   });
 
+  it('Wifi Tab changes to Wifi form', function () {
+    cy.getByDataTest('wifi-tab').click();
+    cy.getByDataTest('ssid-input').should('exist');
+    cy.getByDataTest('hidden-ssid-checkbox').should('exist');
+    cy.getByDataTest('password-input').should('exist');
+    cy.getByDataTest('none-radio-btn').should('exist');
+    cy.getByDataTest('wpa-radio-btn').should('exist');
+    cy.getByDataTest('wep-radio-btn').should('exist');
+    cy.getByDataTest('generate-btn').should('exist');
+    cy.getByDataTest('clear-btn').should('exist');
+  });
+
   describe('URL QRCode', function () {
     beforeEach(function () {
       const urlInput = 'https://google.com';
