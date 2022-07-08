@@ -78,6 +78,20 @@ describe('QRCODE GENERATOR APP', function () {
       cy.getByDataTest('print-btn').click();
       cy.get('@print').should('have.been.calledOnce');
     });
+
+    // limiting this test to Chrome browsers
+    // since in FF we get a cross-origin request error
+    it(
+      'URL QRCode PNG image can be downloaded',
+      { browser: '!firefox' },
+      () => {
+        // image comes from the same domain as the page
+        cy.getByDataTest('download-btn').click();
+
+        cy.log('**confirm downloaded image**');
+        cy.validateImage('qr-code.png');
+      },
+    );
   });
 
   describe('WIFI QRCode', function () {
