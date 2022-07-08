@@ -2,9 +2,9 @@ import { MouseEvent } from 'react';
 import { FaQrcode } from 'react-icons/fa';
 
 interface GeneratorBtnsProps {
-  generate: (_e: MouseEvent<HTMLButtonElement>) => Promise<void>;
+  generate: (e: MouseEvent<HTMLButtonElement>) => Promise<void>;
   isDisabled: boolean;
-  clear: (_e: MouseEvent<HTMLButtonElement>) => void;
+  clear: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export const GeneratorBtns = ({
@@ -19,15 +19,17 @@ export const GeneratorBtns = ({
         type="submit"
         onClick={generate}
         disabled={isDisabled}
+        data-test="generate-btn"
       >
-        Generate <FaQrcode />
+        GENERATE <FaQrcode />
       </button>
       <button
         type="button"
         className="btn btn-outline gap-2 print:hidden"
         onClick={clear}
+        data-test="clear-btn"
       >
-        Clear
+        CLEAR
       </button>
     </div>
   );

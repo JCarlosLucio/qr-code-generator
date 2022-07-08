@@ -25,10 +25,18 @@ export const QRCodeGenerator = () => {
   return (
     <main className="mb-5 flex w-full max-w-xs flex-col items-center gap-4 sm:max-w-md print:max-w-2xl">
       <div className="tabs tabs-boxed">
-        <button className={activeTabClass('url')} onClick={handleTab('url')}>
+        <button
+          className={activeTabClass('url')}
+          onClick={handleTab('url')}
+          data-test="url-tab"
+        >
           URL
         </button>
-        <button className={activeTabClass('wifi')} onClick={handleTab('wifi')}>
+        <button
+          className={activeTabClass('wifi')}
+          onClick={handleTab('wifi')}
+          data-test="wifi-tab"
+        >
           WIFI
         </button>
       </div>
@@ -41,19 +49,26 @@ export const QRCodeGenerator = () => {
 
       {qrCode && (
         <>
-          <img className="artboard-demo" src={qrCode} alt="generated qr code" />
+          <img
+            className="artboard-demo"
+            src={qrCode}
+            alt="generated qr code"
+            data-test="qrcode-img"
+          />
 
           <div className="flex w-full flex-grow gap-2 print:hidden">
             <a
               className="btn btn-secondary flex-1 gap-2"
               href={qrCode}
               download="qr-code.png"
+              data-test="download-btn"
             >
               Download <FaDownload />
             </a>
             <button
               className="btn btn-accent flex-1 gap-2"
               onClick={handlePrint}
+              data-test="print-btn"
             >
               Print <FaPrint />
             </button>

@@ -32,7 +32,9 @@ export const ColorModeContext = createContext<{
   setColorMode: Dispatch<SetStateAction<ColorMode>>;
 }>({
   colorMode: 'light',
-  setColorMode: () => {},
+  setColorMode: () => {
+    return;
+  },
 });
 
 export const ColorModeProvider = ({ children }: { children: ReactNode }) => {

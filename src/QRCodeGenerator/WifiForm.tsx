@@ -63,6 +63,7 @@ export const WifiForm = ({ setQrCode }: WifiFormProps) => {
             onChange={handleInputChange}
             name="ssid"
             placeholder="Network name"
+            data-test="ssid-input"
           />
         </label>
         <label className="label cursor-pointer gap-2 print:hidden">
@@ -73,6 +74,7 @@ export const WifiForm = ({ setQrCode }: WifiFormProps) => {
             type="checkbox"
             checked={wifiConfig.hiddenSSID}
             onChange={handleInputChange}
+            data-test="hidden-ssid-checkbox"
           />
         </label>
       </div>
@@ -84,6 +86,7 @@ export const WifiForm = ({ setQrCode }: WifiFormProps) => {
           onChange={handleInputChange}
           name="password"
           placeholder="Password"
+          data-test="password-input"
         />
       </label>
 
@@ -97,6 +100,7 @@ export const WifiForm = ({ setQrCode }: WifiFormProps) => {
             value="None"
             checked={wifiConfig.encryption === 'None'}
             onChange={handleInputChange}
+            data-test="none-radio-btn"
           />
         </label>
         <label className="label cursor-pointer gap-2">
@@ -108,6 +112,7 @@ export const WifiForm = ({ setQrCode }: WifiFormProps) => {
             value="WPA"
             checked={wifiConfig.encryption === 'WPA'}
             onChange={handleInputChange}
+            data-test="wpa-radio-btn"
           />
         </label>
         <label className="label cursor-pointer gap-2">
@@ -119,6 +124,7 @@ export const WifiForm = ({ setQrCode }: WifiFormProps) => {
             value="WEP"
             checked={wifiConfig.encryption === 'WEP'}
             onChange={handleInputChange}
+            data-test="wep-radio-btn"
           />
         </label>
       </div>
