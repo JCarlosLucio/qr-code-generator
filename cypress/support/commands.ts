@@ -60,3 +60,7 @@ Cypress.Commands.add('validateImage', (downloadedFilename) => {
     },
   );
 });
+
+Cypress.Commands.add('getLocalStorage', (key) => {
+  cy.window().then((window) => window.localStorage.getItem(key));
+});

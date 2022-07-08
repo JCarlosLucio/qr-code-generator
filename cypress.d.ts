@@ -17,7 +17,13 @@ declare namespace Cypress {
     ): Chainable<JQuery<HTMLElement>>;
 
     /**
-     * Custom command to svalidate a downloaded .
+     * Custom command to sget Local Storage
+     * @example cy.getLocalStorage('token').should('eq', 'abc123')
+     */
+    getLocalStorage(key: string): Chainable<JQuery<HTMLElement>>;
+
+    /**
+     * Custom command to svalidate a downloaded
      * @example cy.validateImage('logo.png')
      */
     validateImage(
