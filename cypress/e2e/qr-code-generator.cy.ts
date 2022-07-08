@@ -87,5 +87,17 @@ describe('QRCODE GENERATOR APP', function () {
       cy.getByDataTest('print-btn').should('exist');
       cy.getByDataTest('generate-btn').should('be.disabled');
     });
+
+    it('WIFI QRcode and inputs can be cleared', function () {
+      cy.getByDataTest('clear-btn').click();
+      cy.getByDataTest('qrcode-img').should('not.exist');
+      cy.getByDataTest('download-btn').should('not.exist');
+      cy.getByDataTest('print-btn').should('not.exist');
+      cy.getByDataTest('ssid-input').should('have.value', '');
+      cy.getByDataTest('password-input').should('have.value', '');
+      cy.getByDataTest('hidden-ssid-checkbox').should('not.be.checked');
+      cy.getByDataTest('wpa-radio-btn').should('be.checked');
+      cy.getByDataTest('generate-btn').should('not.be.disabled');
+    });
   });
 });
