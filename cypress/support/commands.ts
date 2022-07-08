@@ -1,3 +1,4 @@
+import * as path from 'path';
 // ***********************************************
 // This example commands.ts shows you how to
 // create various custom commands and overwrite
@@ -40,4 +41,22 @@
 
 Cypress.Commands.add('getByDataTest', (selector, ...args) => {
   return cy.get(`[data-test=${selector}]`, ...args);
+});
+
+Cypress.Commands.add('validateImage', (downloadedFilename) => {
+  const downloadsFolder = Cypress.config('downloadsFolder');
+
+  downloadedFilename = path.join(downloadsFolder, downloadedFilename);
+
+  // ensure the file has been saved before trying to parse it
+  cy.readFile(downloadedFilename, 'binary', { timeout: 15000 }).should(
+    (buffer) => {
+      // by having length assertion we ensure the file has text
+      // since we don't know when the browser finishes writing it to disk
+
+      // Tip: use expect() form to avoid dumping binary contents
+      // of the buffer into the Command Log
+      expect(buffer.length).to.be.gt(1000);
+    },
+  );
 });

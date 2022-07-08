@@ -15,5 +15,19 @@ declare namespace Cypress {
           Cypress.Shadow
       >,
     ): Chainable<JQuery<HTMLElement>>;
+
+    /**
+     * Custom command to svalidate a downloaded .
+     * @example cy.validateImage('logo.png')
+     */
+    validateImage(
+      downloadedFilename: string,
+      args?: Partial<
+        Cypress.Loggable &
+          Cypress.Timeoutable &
+          Cypress.Withinable &
+          Cypress.Shadow
+      >,
+    ): Chainable<JQuery<HTMLElement>>;
   }
 }
