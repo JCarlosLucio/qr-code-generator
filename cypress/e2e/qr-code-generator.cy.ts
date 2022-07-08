@@ -69,6 +69,15 @@ describe('QRCODE GENERATOR APP', function () {
       cy.getByDataTest('url-textarea').should('have.value', '');
       cy.getByDataTest('generate-btn').should('not.be.disabled');
     });
+
+    it('URL QRCode can be printed', function () {
+      cy.window().then((win) => {
+        cy.stub(win, 'print').as('print');
+      });
+
+      cy.getByDataTest('print-btn').click();
+      cy.get('@print').should('have.been.calledOnce');
+    });
   });
 
   describe('WIFI QRCode', function () {
