@@ -28,11 +28,13 @@ const getInitialMode = (): ColorMode => {
 };
 
 export const ColorModeContext = createContext<{
-  colorMode: ColorMode | undefined;
-  setColorMode: Dispatch<SetStateAction<ColorMode>> | undefined;
+  colorMode: ColorMode;
+  setColorMode: Dispatch<SetStateAction<ColorMode>>;
 }>({
-  colorMode: undefined,
-  setColorMode: undefined,
+  colorMode: 'light',
+  setColorMode: () => {
+    return;
+  },
 });
 
 export const ColorModeProvider = ({ children }: { children: ReactNode }) => {
