@@ -22,16 +22,19 @@ describe('QRCODE GENERATOR APP', function () {
   });
 
   it('ColorModeToggle changes color theme', function () {
-    expect(window.localStorage.getItem('color-mode')).to.eq('dark');
-    cy.root().should('have.attr', 'data-theme', 'dark');
-    cy.root().should('have.css', 'background-color', 'rgb(0, 0, 0)');
-    cy.getByDataTest('color-mode-toggle')
-      .click()
-      .should(() => {
-        expect(window.localStorage.getItem('color-mode')).to.eq('light');
-      });
-    cy.root().should('have.attr', 'data-theme', 'light');
-    cy.root().should('have.css', 'background-color', 'rgb(255, 255, 255)');
+    const isDarkMode = window.localStorage.getItem('color-mode') === 'dark';
+    const initialColorMode = isDarkMode ? 'dark' : 'light';
+    const initialColor = isDarkMode ? 'rgb(0, 0, 0)' : 'rgb(255, 255, 255)';
+    const finalColorMode = isDarkMode ? 'light' : 'dark';
+    const finalColor = isDarkMode ? 'rgb(255, 255, 255)' : 'rgb(0, 0, 0)';
+    cy.getByDataTest('color-mode-toggle').should('be.visible');
+    cy.getLocalStorage('color-mode').should('eq', initialColorMode);
+    cy.root().should('have.attr', 'data-theme', initialColorMode);
+    cy.root().should('have.css', 'background-color', initialColor);
+    cy.getByDataTest('color-mode-toggle').click();
+    cy.getLocalStorage('color-mode').should('eq', finalColorMode);
+    cy.root().should('have.attr', 'data-theme', finalColorMode);
+    cy.root().should('have.css', 'background-color', finalColor);
   });
 
   it('Wifi Tab changes to Wifi form', function () {
