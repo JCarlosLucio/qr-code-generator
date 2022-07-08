@@ -34,36 +34,27 @@ describe('QRCODE GENERATOR APP', function () {
     cy.root().should('have.css', 'background-color', 'rgb(255, 255, 255)');
   });
 
-  describe('A URL QRCode can be created ', function () {
+  describe('URL QRCode', function () {
     beforeEach(function () {
       const urlInput = 'https://google.com';
-      cy.wrap(urlInput).as('urlInput');
+
+      cy.getByDataTest('url-textarea').type(urlInput);
+      cy.getByDataTest('generate-btn').click();
     });
 
-    it('Url qrcode is created from a valid url', function () {
-      const generateBtnSelector = 'generate-btn';
-
-      cy.getByDataTest('url-textarea')
-        .type(this.urlInput)
-        .should('have.value', this.urlInput);
-      cy.getByDataTest(generateBtnSelector).click();
+    it('A URL QRCode can be created', function () {
       cy.getByDataTest('qrcode-img').should('exist');
       cy.getByDataTest('download-btn').should('exist');
       cy.getByDataTest('print-btn').should('exist');
-      cy.getByDataTest(generateBtnSelector).should('be.disabled');
+      cy.getByDataTest('generate-btn').should('be.disabled');
     });
 
     it('Url qrcode and input can be cleared', function () {
-      const urlTextarea = 'url-textarea';
-
-      cy.getByDataTest(urlTextarea)
-        .type(this.urlInput)
-        .should('have.value', this.urlInput);
       cy.getByDataTest('clear-btn').click();
       cy.getByDataTest('qrcode-img').should('not.exist');
       cy.getByDataTest('download-btn').should('not.exist');
       cy.getByDataTest('print-btn').should('not.exist');
-      cy.getByDataTest(urlTextarea).should('have.value', '');
+      cy.getByDataTest('url-textarea').should('have.value', '');
       cy.getByDataTest('generate-btn').should('not.be.disabled');
     });
   });
