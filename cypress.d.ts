@@ -17,7 +17,7 @@ declare namespace Cypress {
     ): Chainable<JQuery<HTMLElement>>;
 
     /**
-     * Custom command to sget Local Storage
+     * Custom command to get Local Storage
      * @example cy.getLocalStorage('token').should('eq', 'abc123')
      */
     getLocalStorage(key: string): Chainable<JQuery<HTMLElement>>;
