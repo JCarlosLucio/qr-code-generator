@@ -46,3 +46,8 @@ Checks for type errors.
 
 Opens the cypress suite for testing. The app must be running with `npm run dev`
 or `npm run serve`.
+
+### `npm run test:e2e`
+
+Runs Cypress tests to completion. By default, cypress run will run all tests
+headlessly.
