@@ -38,8 +38,11 @@ declare namespace Cypress {
 
     /**
      * Custom command to set prefers-color-scheme media query
-     * @example cy.prefersDarkMode(true)
+     * @example cy.visitPrefersDarkMode(true);
+     * @example cy.visitPrefersDarkMode(false);
      */
-    prefersDarkMode(value: boolean): Chainable<JQuery<HTMLElement>>;
+    visitPrefersDarkMode(
+      prefersDarkMode: boolean,
+    ): Chainable<JQuery<HTMLElement>>;
   }
 }
