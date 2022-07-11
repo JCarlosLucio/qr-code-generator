@@ -35,5 +35,11 @@ declare namespace Cypress {
           Cypress.Shadow
       >,
     ): Chainable<JQuery<HTMLElement>>;
+
+    /**
+     * Custom command to set prefers-color-scheme media query
+     * @example cy.prefersDarkMode(true)
+     */
+    prefersDarkMode(value: boolean): Chainable<JQuery<HTMLElement>>;
   }
 }

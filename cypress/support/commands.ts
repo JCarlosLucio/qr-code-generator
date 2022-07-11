@@ -64,3 +64,13 @@ Cypress.Commands.add('validateImage', (downloadedFilename) => {
 Cypress.Commands.add('getLocalStorage', (key) => {
   cy.window().then((window) => window.localStorage.getItem(key));
 });
+
+Cypress.Commands.add('prefersDarkMode', (value) => {
+  cy.window().then((win) => {
+    cy.stub(win, 'matchMedia')
+      .withArgs('(prefers-color-scheme: dark)')
+      .returns({
+        matches: value,
+      });
+  });
+});
