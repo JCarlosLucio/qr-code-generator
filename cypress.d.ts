@@ -17,13 +17,13 @@ declare namespace Cypress {
     ): Chainable<JQuery<HTMLElement>>;
 
     /**
-     * Custom command to sget Local Storage
+     * Custom command to get Local Storage
      * @example cy.getLocalStorage('token').should('eq', 'abc123')
      */
     getLocalStorage(key: string): Chainable<JQuery<HTMLElement>>;
 
     /**
-     * Custom command to svalidate a downloaded
+     * Custom command to validate a downloaded
      * @example cy.validateImage('logo.png')
      */
     validateImage(
@@ -35,5 +35,11 @@ declare namespace Cypress {
           Cypress.Shadow
       >,
     ): Chainable<JQuery<HTMLElement>>;
+
+    /**
+     * Custom command to set prefers-color-scheme media query
+     * @example cy.prefersDarkMode(true)
+     */
+    prefersDarkMode(value: boolean): Chainable<JQuery<HTMLElement>>;
   }
 }

@@ -41,3 +41,13 @@ Formats and fixes linting errors.
 ### `npm run type-check`
 
 Checks for type errors.
+
+### `npm run cypress:open`
+
+Opens the cypress suite for testing. The app must be running with `npm run dev`
+or `npm run serve`.
+
+### `npm run test:e2e`
+
+Runs Cypress tests to completion. By default, cypress run will run all tests
+headlessly.
