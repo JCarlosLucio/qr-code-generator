@@ -21,7 +21,7 @@ describe('QRCODE GENERATOR APP', function () {
     );
   });
 
-  -it(
+  it(
     'ColorModeToggle changes color theme from dark to light',
     { browser: '!firefox' },
     function () {
