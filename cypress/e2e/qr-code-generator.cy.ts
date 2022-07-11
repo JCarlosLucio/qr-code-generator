@@ -21,22 +21,6 @@ describe('QRCODE GENERATOR APP', function () {
     );
   });
 
-  it('ColorModeToggle changes color theme', function () {
-    const isDarkMode = window.localStorage.getItem('color-mode') === 'dark';
-    const initialColorMode = isDarkMode ? 'dark' : 'light';
-    const initialColor = isDarkMode ? 'rgb(0, 0, 0)' : 'rgb(255, 255, 255)';
-    const finalColorMode = isDarkMode ? 'light' : 'dark';
-    const finalColor = isDarkMode ? 'rgb(255, 255, 255)' : 'rgb(0, 0, 0)';
-    cy.getByDataTest('color-mode-toggle').should('be.visible');
-    cy.getLocalStorage('color-mode').should('eq', initialColorMode);
-    cy.root().should('have.attr', 'data-theme', initialColorMode);
-    cy.root().should('have.css', 'background-color', initialColor);
-    cy.getByDataTest('color-mode-toggle').click();
-    cy.getLocalStorage('color-mode').should('eq', finalColorMode);
-    cy.root().should('have.attr', 'data-theme', finalColorMode);
-    cy.root().should('have.css', 'background-color', finalColor);
-  });
-
   it('Wifi Tab changes to Wifi form', function () {
     cy.getByDataTest('wifi-tab').click();
     cy.getByDataTest('ssid-input').should('exist');
@@ -48,6 +32,25 @@ describe('QRCODE GENERATOR APP', function () {
     cy.getByDataTest('generate-btn').should('exist');
     cy.getByDataTest('clear-btn').should('exist');
   });
+
+  it(
+    'ColorModeToggle changes color theme from dark to light',
+    { browser: '!firefox' },
+    function () {
+      const initialColorMode = 'dark';
+      const initialColor = 'rgb(0, 0, 0)';
+      const finalColorMode = 'light';
+      const finalColor = 'rgb(255, 255, 255)';
+      cy.getByDataTest('color-mode-toggle').should('be.visible');
+      cy.getLocalStorage('color-mode').should('eq', initialColorMode);
+      cy.root().should('have.attr', 'data-theme', initialColorMode);
+      cy.root().should('have.css', 'background-color', initialColor);
+      cy.getByDataTest('color-mode-toggle').click();
+      cy.getLocalStorage('color-mode').should('eq', finalColorMode);
+      cy.root().should('have.attr', 'data-theme', finalColorMode);
+      cy.root().should('have.css', 'background-color', finalColor);
+    },
+  );
 
   describe('URL QRCode', function () {
     beforeEach(function () {
