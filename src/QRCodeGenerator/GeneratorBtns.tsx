@@ -15,7 +15,7 @@ export const GeneratorBtns = ({
   return (
     <div className="flex w-full flex-grow items-center gap-4">
       <button
-        className="btn btn-primary flex-1 gap-2 print:hidden"
+        className="btn-primary btn flex-1 gap-2 print:hidden"
         type="submit"
         onClick={generate}
         disabled={isDisabled}
@@ -25,7 +25,7 @@ export const GeneratorBtns = ({
       </button>
       <button
         type="button"
-        className="btn btn-outline gap-2 print:hidden"
+        className="btn-outline btn gap-2 print:hidden"
         onClick={clear}
         data-test="clear-btn"
       >

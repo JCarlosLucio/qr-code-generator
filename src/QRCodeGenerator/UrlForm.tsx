@@ -50,7 +50,7 @@ export const UrlForm = ({ setQrCode }: UrlFormProps) => {
       </label>
       <div className="flex w-full items-center gap-4">
         <textarea
-          className="textarea textarea-bordered w-full print:text-center print:text-2xl"
+          className="textarea-bordered textarea w-full print:text-center print:text-2xl"
           id="url-textarea"
           value={url}
           onChange={handleUrlChange}
