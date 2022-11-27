@@ -58,7 +58,7 @@ export const QRCodeGenerator = () => {
 
           <div className="flex w-full flex-grow gap-2 print:hidden">
             <a
-              className="btn btn-secondary flex-1 gap-2"
+              className="btn-secondary btn flex-1 gap-2"
               href={qrCode}
               download="qr-code.png"
               data-test="download-btn"
@@ -66,7 +66,7 @@ export const QRCodeGenerator = () => {
               Download <FaDownload />
             </a>
             <button
-              className="btn btn-accent flex-1 gap-2"
+              className="btn-accent btn flex-1 gap-2"
               onClick={handlePrint}
               data-test="print-btn"
             >

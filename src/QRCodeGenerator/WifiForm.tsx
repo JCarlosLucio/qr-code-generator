@@ -58,7 +58,7 @@ export const WifiForm = ({ setQrCode }: WifiFormProps) => {
         <label className="input-group">
           <span>SSID</span>
           <input
-            className="input input-bordered w-full print:text-center print:text-2xl"
+            className="input-bordered input w-full print:text-center print:text-2xl"
             value={wifiConfig.ssid}
             onChange={handleInputChange}
             name="ssid"
@@ -81,7 +81,7 @@ export const WifiForm = ({ setQrCode }: WifiFormProps) => {
       <label className="input-group">
         <span>Password</span>
         <input
-          className="input input-bordered w-full print:text-center print:text-2xl"
+          className="input-bordered input w-full print:text-center print:text-2xl"
           value={wifiConfig.password}
           onChange={handleInputChange}
           name="password"
