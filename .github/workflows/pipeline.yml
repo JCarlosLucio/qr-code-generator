@@ -87,7 +87,7 @@ jobs:
           fetch-depth: 0
 
       - name: Bump version and push tag
-        uses: anothrNick/github-tag-action@ce4b5ffa38e072fa7a901e417253c438fcc2ccce
+        uses: anothrNick/github-tag-action@be61601e6c758192da360827035da616d7250eb3
         if:
           github.event_name == 'push' && !contains(join(github.event.commits.*.message), '#skip')
         env:
@@ -106,5 +106,3 @@ jobs:
             to https://jcarloslucio.github.io/qr-code-generator/ by ${{
             github.event.commits[0].committer.username }}
           text: 'A new version of QRCODE GENERATOR deployed :partying_face:'
-
-      
