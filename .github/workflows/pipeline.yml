@@ -52,7 +52,7 @@ jobs:
         if: failure()
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          title: 'Failure: Build failed :sob:'
+          title: 'Build failed :sob:'
           color: 0xff0000
           avatar_url: https://github.githubassets.com/images/modules/logos_page/Octocat.png
           username: GitHub Actions
@@ -101,7 +101,7 @@ jobs:
           success() && github.event_name == 'push' && !contains(join(github.event.commits.*.message), '#skip')
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          title: 'Success: A new version of QRCODE GENERATOR deployed :partying_face:'
+          title: 'A new version of QRCODE GENERATOR deployed :partying_face:'
           color: 0x00ff00
           avatar_url: https://github.githubassets.com/images/modules/logos_page/Octocat.png
           username: GitHub Actions
