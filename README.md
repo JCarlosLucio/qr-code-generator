@@ -1,6 +1,6 @@
 # QRCODE GENERATOR 👋
 
-![Version](https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-0.0.11-blue.svg?cacheSeconds=2592000)
 ![Prerequisite](https://img.shields.io/badge/node-%3E%3D%2016.9-blue.svg)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://github.com/JCarlosLucio/qr-code-generator#readme)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/JCarlosLucio/qr-code-generator/graphs/commit-activity)
@@ -12,7 +12,7 @@
 
 [![QRCODE GENERATOR Homepage](../media/qr-code-generator-desktop.webp?raw=true)](https://jcarloslucio.github.io/qr-code-generator/)
 
-## Docs
+## 📜 Docs
 
 ### Prerequisites
 
@@ -96,7 +96,7 @@ headlessly.
 npm run test:e2e
 ```
 
-## Deployment
+## 🚀 Deployment
 
 Deployed to gh-pages.
 
@@ -119,6 +119,22 @@ If any commit message in your push or the HEAD commit of your PR contains the
 strings `[skip ci]`, `[ci skip]`, `[no ci]`, `[skip actions]`, or
 `[actions skip]` workflows triggered on the `push` or `pull_request` events will
 be skipped.
+
+## 📖 Lessons Learned
+
+- Using [taiwindcss](https://tailwindcss.com/) with
+  [daisyUI](https://daisyui.com/) components.
+- Generating QR Codes, mecard encoding, and generating a string from WIFI
+  config.
+- Adding dark mode using tailwind/daisyUI, and ContextAPI.
+- Practice using React with Typescript.
+- Creating a deployment to [GitHub Pages](https://pages.github.com/) pipeline
+  with [GitHub Actions](https://github.com/features/actions).
+
+## ✏️ TODO
+
+- Add Logo (qrcode of something).
+- Maybe search for other types of QR Codes that can be generated.
 
 ## Author
 
