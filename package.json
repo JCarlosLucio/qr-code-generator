@@ -75,5 +75,5 @@
     "vite-tsconfig-paths": "^4.2.0"
   },
   "pre-commit": "lint",
-  "license": "ISC"
+  "license": "GPLv3"
 }
