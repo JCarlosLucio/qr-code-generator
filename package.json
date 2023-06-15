@@ -28,6 +28,9 @@
       "last 1 safari version"
     ]
   },
+  "engines": {
+    "node": ">= 16.9"
+  },
   "scripts": {
     "dev": "vite --open",
     "build": "tsc && vite build",
